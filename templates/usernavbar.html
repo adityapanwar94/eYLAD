@@ -1,0 +1,217 @@
+<!-- template for navbar in index.html and dashboard.html -->
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+    <!-- large logo for navbar opened -->
+    <a class="navbar-brand brand-logo mr-5" href="/dashboard/"><img src="/media/images/logo.png" class="mr-2"
+        alt="logo" /></a>
+    <!-- small logo for navbar closed -->
+    <a class="navbar-brand brand-logo-mini" href="/dashboard/" style="margin-right:0"><img src="/media/images/logo-mini.jpeg"
+        alt="logo" /></a>
+  </div>
+  <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="padding-left:0" id="tour-navbar">
+    <!-- button to toggle open and close navbar -->
+    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" style="margin-left: 5px; margin-right: 5px;">
+      <i class="mdi mdi-menu" style="font-size: 25px;"></i>
+    </button>
+
+    {% comment %} <div id="nav_btn" class="btn-group" style="padding:10px;"> {% endcomment %}
+      {% comment %} <button class="btn btn-secondary btn-sm" type="button" style="
+        border-radius: 10px 0px 0px 10px;
+        color: #000;
+        background-color: #ffffff;
+        border-color: #a3a4a5;
+        font-size: large;">
+          Theme
+      </button> {% endcomment %}
+      {% comment %} <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" 
+        data-toggle="dropdown" aria-haspopup="true" 
+        aria-expanded="false"
+        style="
+          border-radius: 0px 10px 10px 0px;
+          color: #000;
+          background-color: #ffffff;
+          border-color: #a3a4a5;
+          font-size: medium;">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu" style="font-size: medium; left:70%;"> {% endcomment %}
+        <select id="main_theme" onchange="theme_change()" class="nav-select">
+          Theme: 
+          <option class="dropdown-item" {% if theme == "AB" %}selected="selected" {% endif %} value="AB">AB</option>
+          <option class="dropdown-item" {% if theme == "BM" %}selected="selected" {% endif %} value="BM">BM</option>
+          <option class="dropdown-item" {% if theme == "DB" %}selected="selected" {% endif %} value="DB">DB</option>
+          <option class="dropdown-item" {% if theme == "FW" %}selected="selected" {% endif %} value="FW">FW</option>
+          <option class="dropdown-item" {% if theme == "SM" %}selected="selected" {% endif %} value="SM">SM</option>
+          <option class="dropdown-item" {% if theme == "SS" %}selected="selected" {% endif %} value="SS">SS</option>
+        </select>
+      {% comment %} </div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
+
+  <!-- button to open help modal-->
+  <button  
+    onclick="startTour()"
+    {% comment %} data-bs-toggle="modal"  {% endcomment %}
+    {% comment %} data-bs-target="#exampleModal"  {% endcomment %}
+    style="width: fit-content; 
+            margin-left: 18px;
+            margin-top: 4px;
+            padding: 0px;
+            border:none;
+            background:transparent;"  >
+      <i class="ti-info text-primary"
+        style="border: 1px solid #cdc0c0;
+                padding: 4px;
+                border-radius: 7px;">
+      </i>
+  </button>
+
+    <ul class="navbar-nav navbar-nav-right">
+      <li class="nav-item nav-profile ">
+        <!-- logout buttons -->
+        <a class="dropdown-item" href="/logout">
+          <i class="ti-power-off text-primary"></i>
+          Logout
+        </a>
+        <!-- avatar for e-yantra robot -->
+        <img src="/media/images/robot.png" alt="profile" style="border-radius: 25px;
+          background:#E23235;
+          padding: 1px;">
+      </li>
+    </ul>
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+      data-toggle="offcanvas">
+      <span class="mdi mdi-menu"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- links for pages of task -->
+<div class="container-fluid page-body-wrapper">
+  <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <!-- link to dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard">
+          <i class="mdi mdi-view-dashboard-outline"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <!-- link to task 0 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/0">
+          <i class="mdi mdi-numeric-0-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task0</span>
+        </a>
+      </li>
+      <!-- link to task 1 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/1">
+          <i class="mdi mdi-numeric-1-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task1</span>
+        </a>
+      </li>
+      <!-- link to task 2 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/2">
+          <i class="mdi mdi-numeric-2-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task2</span>
+        </a>
+      </li>
+      <!-- link to task 3 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/3">
+          <i class="mdi mdi-numeric-3-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task3</span>
+        </a>
+      </li>
+      <!-- link to task 4 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/4">
+          <i class="mdi mdi-numeric-4-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task4</span>
+        </a>
+      </li>
+      <!-- link to task 5 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/5">
+          <i class="mdi mdi-numeric-5-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task5</span>
+        </a>
+      </li>
+      <!-- link to task 6 -->
+      <li class="nav-item">
+        <a class="nav-link" href="/task/6">
+          <i class="mdi mdi-numeric-6-box-outline" style="font-size: 2em;"></i>
+          <span class="menu-title">Task6</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- Modal -->
+{% comment %} <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow: visible;">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content" style="bottom: 70px; height: fit-content;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="overflow: auto;">
+        <div class="modal-split">
+		      <h6>Predictions for current task and Discourse Statistics</h6>
+          <img src="\media\images\help\slide-1.png" alt="Doughtnut Chart and Discourse Stats" width="100%">
+          <b>Note:</b> The model uses task feedback as one of the parameters. If Task 1 feedback is not received, then predictions are not available for Task 2.
+		    </div>
+		    <div class="modal-split">
+		      <h6>Task and Themewise feedback</h6>
+          <img src="\media\images\help\slide-2.png" alt="Feedback Plots" width="100%">
+          Click on the drop-down list to select particular task.<br>
+          To know more about boxplots, click <a href="https://byjus.com/maths/box-plot/#parts" target="_blank">here</a>.
+		    </div>
+        <div class="modal-split">
+          <h6>Informed Teams Counter</h6>
+          <img src="\media\images\help\slide-3.png" alt="Informed Teams Counter" width="100%">
+          This provides a topic-wise view count for instructor posts on Discourse. The count displayed is for the unique no. of teams that have seen/not seen a task/post/announcement.
+You can download the details of these teams in various file formats and take necessary measures (such as sending emails to teams that have not seen a post)
+
+        </div>
+        <div class="modal-split">
+          <h6>Informed Teams Counter</h6>
+          <img src="\media\images\help\slide-4.png" alt="Informed Teams Counter" width="100%">
+          <b>Note:</b> As you see from the figure below, similar post titles for various themes are not directly identifiable to which theme they belong to. 
+          Hence, it is suggested that you change the category name on discourse for all categories by simply padding the theme acronym (example: SM: Task 0 shown below). 
+        </div>
+        <div class="modal-split">
+          <h6>Submission Statistics and Predictions for the Task</h6>
+          <img src="\media\images\help\slide-5.png" alt="Submission Stats and Predictions" width="100%">
+          The bar chart displays submission statistics of current task compared to previous tasks, distinguished by themes.
+           The doughnut chart displays the model prediction for current task.
+        </div>
+        <div class="modal-split">
+		      <h6>Model Metrics and Login Activity on eYRC portal</h6>
+          <img src="\media\images\help\slide-6.png" alt="Model Metrics and Login Activity" width="100%">
+          This section displays Machine Learning model metrics for that particular task and login activity on Discourse forum during its timeline.
+          <br>To know more about model metrics, click <a href="https://www.geeksforgeeks.org/metrics-for-machine-learning-model/" target=""_blank"">here</a>.
+		    </div>
+		    <div class="modal-split">
+		      <h6>Task-wise and Question-wise Feedback (to understand the feedback on same parameter over the tasks):
+          </h6>
+          <img src="\media\images\help\slide-7.png" alt="Task-wise and Question-wise feedback" width="100%">
+		    </div>
+        <div class="modal-split">
+          <h6>Team-wise Prediction and Contact Details</h6>
+          <img src="\media\images\help\slide-8.png" alt="Prediction and Contact DataTable" width="100%">
+          This provides team-wise predictions for the given task. You may sort/filter and choose your own threshold for confidence level. 
+          Team contacts are also available in this table for taking necessary measures.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="mr-auto" id="modalPageNo"></div>
+        <button type="button" class="btn btn-primary" id="helpBack">Back</button>
+        <button type="button" class="btn btn-primary" id="helpNext">Next</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="helpClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
